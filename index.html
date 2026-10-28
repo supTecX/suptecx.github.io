@@ -1,112 +1,851 @@
+
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f8fa">
-  <meta name="robots" content="index, follow">
-  <title>Ramazan Güven | Dijital İçerik Üreticisi ve Yazılım Geliştiricisi</title>
-  <meta name="description" content="Ramazan Güven (supTecX), dijital içerik üreticisi ve yazılım geliştiricisi. Hakkında, ilgi alanları, projeleri ve dijital profilleri.">
-  <link rel="canonical" href="https://suptecx.github.io/">
-  <meta property="og:type" content="profile">
-  <meta property="og:locale" content="tr_TR">
-  <meta property="og:title" content="Ramazan Güven | supTecX">
-  <meta property="og:description" content="Ramazan Güven (supTecX) — dijital içerik üreticisi ve yazılım geliştiricisi. Kişisel web sitesi, projeleri ve dijital profilleri.">
-  <meta property="og:url" content="https://suptecx.github.io/">
-  <meta property="og:image" content="https://suptecx.github.io/ramazan-guven-profil.png">
-  <meta property="og:image:alt" content="Ramazan Güven, sahilde gün batımında">
-  <style>
-    :root{color-scheme:light;--ink:#18212c;--muted:#657181;--line:#e3e7ed;--accent:#244c79;--bg:#f7f8fa}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.65}
-    a{color:var(--accent)}.wrap{max-width:1000px;margin:auto;padding:0 26px}.top{background:#fff;border-bottom:1px solid var(--line)}
-    .nav{display:flex;justify-content:space-between;align-items:center;min-height:76px;gap:20px}.brand{font-size:18px;font-weight:750;letter-spacing:-.5px;text-decoration:none;color:var(--ink)}.navlinks{display:flex;gap:24px;flex-wrap:wrap}.navlinks a{text-decoration:none;color:var(--muted);font-size:14px}.navlinks a:hover{color:var(--accent)}
-    .hero{padding:110px 0 94px;border-bottom:1px solid var(--line)}.hero-layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;align-items:center;gap:52px}.profile-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:49% 50%;border-radius:12px;box-shadow:0 12px 35px rgba(24,33,44,.10)}.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-weight:700;font-size:12px;color:var(--accent)}h1{font-size:clamp(48px,8vw,86px);letter-spacing:-.065em;line-height:1.1;margin:14px 0 18px}h2{font-size:30px;letter-spacing:-.035em;line-height:1.2;margin:0 0 22px}.subtitle{font-size:21px;color:var(--muted);margin:0 0 22px}.intro{max-width:680px;font-size:17px;color:#495667}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.button{display:inline-block;border:1px solid var(--ink);background:var(--ink);color:white;text-decoration:none;padding:12px 20px;border-radius:7px;font-weight:650;font-size:14px}.button.alt{background:transparent;color:var(--ink)}.button:hover{opacity:.85}
-    section.content{padding:70px 0;border-bottom:1px solid var(--line)}.section-grid{display:grid;grid-template-columns:230px 1fr;gap:32px}.section-tag{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:700;padding-top:8px}.prose{max-width:660px;color:#495667}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{border:1px solid var(--line);background:#fff;border-radius:10px;padding:25px}.card h3{font-size:18px;margin:0 0 9px}.card p{margin:0;color:var(--muted);font-size:15px}.linklist{display:flex;flex-wrap:wrap;gap:12px}.linklist a{display:inline-block;border:1px solid #d8dee7;border-radius:7px;background:#fff;padding:10px 16px;text-decoration:none;font-weight:600}.note{font-size:13px;color:var(--muted);margin-top:16px}.footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:34px 0;color:var(--muted);font-size:13px}
-    @media(max-width:700px){.hero-layout{grid-template-columns:1fr;gap:30px}.profile-photo{width:min(100%,340px);aspect-ratio:4/3}.nav{align-items:flex-start;padding:20px 0;flex-direction:column}.navlinks{gap:14px}.hero{padding:72px 0}.section-grid{grid-template-columns:1fr;gap:15px}.cards{grid-template-columns:1fr}section.content{padding:50px 0}}
-  .gallery {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d1a">
+<meta name="robots" content="index, follow">
+
+<title>Ramazan Güven | supTecX — Dijital İçerik Üreticisi ve Yazılım Geliştiricisi</title>
+<meta name="description" content="Ramazan Güven (supTecX) — dijital içerik üreticisi ve yazılım geliştiricisi. Kick ve Twitch yayınları, fotoğraf galerisi, projeleri ve sosyal medya profilleri.">
+<link rel="canonical" href="https://suptecx.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Ramazan Güven | supTecX">
+<meta property="og:description" content="Dijital içerik, yazılım ve yayın dünyası. Ramazan Güven'in kişisel web sitesi.">
+<meta property="og:url" content="https://suptecx.github.io/">
+<meta property="og:image" content="https://suptecx.github.io/ramazan-guven-profil.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": "https://suptecx.github.io/",
+  "name": "Ramazan Güven | supTecX",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://suptecx.github.io/#ramazan-guven",
+    "name": "Ramazan Güven",
+    "alternateName": "supTecX",
+    "jobTitle": "Dijital İçerik Üreticisi ve Yazılım Geliştiricisi",
+    "birthDate": "2002-12-04",
+    "birthPlace": {
+      "@type": "Place",
+      "name": "Ortahisar, Trabzon, Türkiye"
+    },
+    "description": "Ramazan Güven, supTecX kullanıcı adıyla dijital içerik üretimi, yazılım geliştirme ve oyun toplulukları alanlarında faaliyet göstermektedir.",
+    "url": "https://suptecx.github.io/",
+    "image": "https://suptecx.github.io/ramazan-guven-profil.png",
+    "sameAs": [
+      "https://github.com/supTecX",
+      "https://www.instagram.com/gvn_ramazan61/",
+      "https://steamcommunity.com/id/supTecX/",
+      "https://www.tiktok.com/@suptecx",
+      "https://kick.com/suptecx",
+      "https://www.twitch.tv/suptecx"
+    ]
+  }
+}
+</script>
+
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #080d1a;
+  --panel: #111a2c;
+  --line: #28334a;
+  --ink: #f6f7ff;
+  --muted: #a5b0c7;
+  --violet: #9b85ff;
+  --cyan: #6ce4e3;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  line-height: 1.65;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 790px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 85% 10%, #4b2d934d, transparent 43%),
+    radial-gradient(ellipse at 12% 8%, #12577940, transparent 48%);
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+a:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+
+.wrap {
+  max-width: 1170px;
+  margin: auto;
+  padding: 0 28px;
+}
+
+.header {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid #ffffff18;
+  background: #0b1120cc;
+  backdrop-filter: blur(14px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  min-height: 82px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 850;
+  letter-spacing: -.06em;
+}
+
+.logo b { color: var(--violet); }
+
+.links {
+  display: flex;
+  gap: 23px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.links a {
+  color: #c7cfe0;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.links a:hover, .social a:hover { color: white; }
+
+.pill {
+  border: 1px solid #7b66e2a6;
+  background: #33275e80;
+  border-radius: 50px;
+  padding: 10px 17px;
+  color: white !important;
+}
+
+.hero {
+  position: relative;
+  padding: 85px 0 110px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+  gap: 75px;
+  align-items: center;
+}
+
+.eyebrow, .kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 18px var(--cyan);
+}
+
+h1 {
+  font-size: clamp(58px, 8vw, 108px);
+  line-height: .98;
+  letter-spacing: -.085em;
+  margin: 23px 0 26px;
+}
+
+h1 span {
+  background: linear-gradient(100deg, #fff 10%, #c6b9ff 52%, #7ce1ec);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lead {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #d6dcf0;
+  max-width: 580px;
+  margin: 0 0 20px;
+}
+
+.intro {
+  color: var(--muted);
+  max-width: 550px;
+  margin-bottom: 30px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 13px;
+  padding: 13px 21px;
+  font-weight: 750;
+  font-size: 14px;
+  transition: transform .2s;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+  background: linear-gradient(115deg, #8b73fa, #5c9bea);
+  color: white;
+}
+
+.btn-outline {
+  border: 1px solid #4d5a77;
+  background: #18213a;
+  color: #f5f6ff;
+}
+
+.portrait-frame {
+  position: relative;
+  max-width: 380px;
+  margin: auto;
+  width: 100%;
+}
+
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 31px;
+  border: 1px solid #a18dff61;
+  transform: rotate(4deg);
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  height: 475px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 25px;
+  box-shadow: 0 25px 90px #0009;
+  border: 1px solid #ffffff24;
+}
+
+.floating {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  padding: 13px 18px;
+  background: #151e34f2;
+  border: 1px solid #465275;
+  border-radius: 14px;
+  box-shadow: 0 18px 38px #0008;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.floating span { color: var(--cyan); }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 65px;
+}
+
+.stat {
+  border: 1px solid var(--line);
+  background: #141e31b5;
+  border-radius: 15px;
+  padding: 19px 23px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 22px;
+  letter-spacing: -.04em;
+}
+
+.stat small { color: var(--muted); }
+
+section.section {
+  padding: 88px 0;
+  border-top: 1px solid #ffffff14;
+  position: relative;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.section-head h2 {
+  font-size: clamp(30px, 4.5vw, 46px);
+  letter-spacing: -.06em;
+  line-height: 1.12;
+  margin: 10px 0;
+}
+
+.section-head p {
+  max-width: 460px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 22px;
+}
+
+.surface {
+  background: linear-gradient(145deg, #151f35, #10192a);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 30px;
+}
+
+.surface p { color: #bac4d9; }
+.surface p:first-child { margin-top: 0; }
+.surface p:last-child { margin-bottom: 0; }
+
+.details { display: grid; gap: 15px; }
+
+.detail {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 13px;
+}
+
+.detail:last-child { border: 0; padding: 0; }
+
+.detail small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.detail strong { font-size: 15px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #121c30;
+  padding: 26px;
+  transition: transform .2s, border-color .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #796ad5;
+}
+
+.card-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: #46396b;
+  color: #d7cfff;
+  font-size: 21px;
+  margin-bottom: 22px;
+}
+
+.card h3 { font-size: 19px; margin: 0 0 9px; }
+.card p { color: var(--muted); font-size: 14px; margin: 0; }
+
+.stream-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.stream {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 22px;
+  padding: 27px;
+  border: 1px solid #ffffff26;
+  background:
+    radial-gradient(circle at 90% 10%, #3a8b54aa, transparent 55%),
+    #152539;
+}
+
+.stream.twitch {
+  background:
+    radial-gradient(circle at 90% 10%, #713bd0aa, transparent 55%),
+    #1d1835;
+}
+
+.stream-label {
+  font-size: 12px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #e0e8f5;
+}
+
+.stream h3 {
+  font-size: 30px;
+  margin: 0;
+  letter-spacing: -.04em;
+}
+
+.stream p { color: #cbd6e5; margin: 4px 0 0; }
+.stream .arrow { align-self: end; font-size: 24px; }
+
+.gallery {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 17px;
 }
-.gallery figure { margin: 0; }
+
+.gallery figure { margin: 0; min-width: 0; }
+
 .gallery img {
+  display: block;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 350px;
   object-fit: cover;
-  border-radius: 10px;
+  object-position: center;
+  border-radius: 18px;
+  border: 1px solid #ffffff24;
+  transition: transform .2s;
 }
+
+.gallery img:hover { transform: translateY(-4px); }
+
 .gallery figcaption {
-  margin-top: 8px;
-  color: #667085;
+  font-size: 13px;
+  color: var(--muted);
+  padding: 10px 3px;
 }
-@media (max-width: 700px) {
+
+.social {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+}
+
+.social a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-radius: 15px;
+  background: #141f33;
+  border: 1px solid var(--line);
+  font-weight: 750;
+  transition: background .2s;
+}
+
+.social a:hover { background: #24314b; }
+.social small { color: var(--violet); }
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 30px 0 45px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 850px) {
+  .hero-grid, .about-grid { grid-template-columns: 1fr; }
+  .portrait-frame { max-width: 360px; }
+  .hero { padding: 65px 0 85px; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .gallery img { height: 300px; }
+  .nav { flex-wrap: wrap; padding: 16px 0; }
+  .links { gap: 13px; }
+}
+
+@media (max-width: 580px) {
+  .wrap { padding: 0 19px; }
+  .links { gap: 12px; }
+  .links a { font-size: 12px; }
+  .hero { padding: 50px 0 70px; }
+  h1 { font-size: 64px; }
+  .lead { font-size: 17px; }
+  .portrait { height: 400px; }
+  .stats, .cards, .stream-grid, .social { grid-template-columns: 1fr; }
+  .stats { margin-top: 55px; }
+  .gallery { grid-template-columns: 1fr 1fr; }
+  .gallery img { height: 245px; }
+  .section-head { display: block; }
+  section.section { padding: 65px 0; }
+  .surface { padding: 22px; }
+}
+
+@media (max-width: 390px) {
   .gallery { grid-template-columns: 1fr; }
+  .gallery img { height: 360px; }
 }
-  </style>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ProfilePage",
-    "url":"https://suptecx.github.io/",
-    "name":"Ramazan Güven | supTecX",
-    "mainEntity":{
-      "@type":"Person",
-      "@id":"https://suptecx.github.io/#ramazan-guven",
-      "name":"Ramazan Güven",
-      "alternateName":"supTecX",
-      "jobTitle":"Dijital İçerik Üreticisi ve Yazılım Geliştiricisi",
-      "birthDate":"2002-12-04",
-      "birthPlace":{"@type":"Place","name":"Ortahisar, Trabzon, Türkiye"},
-      "description":"Ramazan Güven, supTecX kullanıcı adıyla dijital içerik üretimi, yazılım geliştirme ve oyun toplulukları alanlarında faaliyet göstermektedir.",
-      "url":"https://suptecx.github.io/",
-      "image":"https://suptecx.github.io/ramazan-guven-profil.png",
-      "sameAs":["https://github.com/supTecX","https://www.instagram.com/gvn_ramazan61/","https://steamcommunity.com/id/supTecX/","https://www.tiktok.com/@suptecx","https://kick.com/suptecx","https://www.twitch.tv/suptecx"]
-    }
-  }
-  </script>
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
 </head>
+
 <body>
-  <header class="top"><div class="wrap nav"><a class="brand" href="#anasayfa">Ramazan Güven<span style="color:#8794a3">.</span></a><nav class="navlinks" aria-label="Ana menü"><a href="#hakkimda">Hakkımda</a><a href="#alanlar">İlgi Alanları</a><a href="#projeler">Projeler</a><a href="#iletisim">Bağlantılar</a></nav></div></header>
-  <main id="anasayfa">
-    <div class="wrap hero"><div class="hero-layout"><div><div class="eyebrow">Kişisel web sitesi · supTecX</div><h1>Ramazan<br>Güven.</h1><p class="subtitle">Dijital İçerik Üreticisi ve Yazılım Geliştiricisi <span aria-hidden="true">·</span> supTecX</p><p class="intro">Merhaba, ben Ramazan Güven. Dijital dünyada supTecX kullanıcı adıyla içerik üretimi ve yazılım geliştirme alanlarında çalışıyorum. Bu sitede çalışmalarımı ve dijital profillerimi paylaşıyorum.</p><div class="actions"><a class="button" href="#hakkimda">Beni tanıyın</a><a class="button alt" href="https://github.com/supTecX" target="_blank" rel="noopener noreferrer">GitHub profilim ↗</a></div></div><img class="profile-photo" src="ramazan-guven-profil.png" alt="Ramazan Güven, sahilde gün batımında" width="653" height="563" fetchpriority="high"></div></div>
-    <section class="content" id="hakkimda"><div class="wrap section-grid"><div class="section-tag">01 / Hakkımda</div><div><h2>Hakkımda.</h2><p class="prose">Ben Ramazan Güven. Dijital dünyada <strong>supTecX</strong> kullanıcı adıyla faaliyet gösteren bir dijital içerik üreticisi ve yazılım geliştiricisiyim.</p><p class="prose"><strong>Doğum tarihi:</strong> 4 Aralık 2002<br><strong>Doğum yeri:</strong> Ortahisar, Trabzon, Türkiye</p><p class="prose">Dijital içerik üretimi, yazılım geliştirme ve oyun topluluklarıyla ilgileniyorum. Teknolojiye ve dijital dünyaya olan ilgimi içeriklerim ve yazılım projelerimle birleştiriyorum.</p><p class="prose">Bu web sitesinde hakkımdaki bilgilere, çalışmalarımı paylaştığım projelere ve resmî dijital profillerime ulaşabilirsiniz.</p></div></div></section>
-    <section class="content" id="alanlar"><div class="wrap section-grid"><div class="section-tag">02 / İlgi alanları</div><div><h2>İlgilendiğim alanlar.</h2><div class="cards"><article class="card"><h3>Teknoloji ve yazılım</h3><p>Teknoloji, yazılım araçları ve dijital projeler üzerine ilgi alanlarım.</p></article><article class="card"><h3>Oyun ve dijital topluluklar</h3><p>Oyun platformları ve çevrimiçi topluluklarla ilgili çalışmalarım ve deneyimlerim.</p></article></div></div></div></section>
-    <section class="content" id="projeler"><div class="wrap section-grid"><div class="section-tag">03 / Projeler</div><div><h2>Çalışmalarım.</h2><p class="prose">Güncel ve herkese açık projelerimi GitHub profilim üzerinden inceleyebilirsiniz. Yeni projelerimi ileride bu sayfaya da ekleyeceğim.</p><a href="https://github.com/supTecX" target="_blank" rel="noopener noreferrer">GitHub projelerimi görüntüle ↗</a></div></div></section>
-    <section class="content" id="galeri">
-  <div class="wrap section-grid">
-    <div class="section-tag">04 / Galeri</div>
-    <div>
-      <h2>Fotoğraf galerisi.</h2>
-      <p class="prose">Ramazan Güven'in fotoğraf arşivinden kareler.</p>
+<header class="header">
+  <div class="wrap nav">
+    <a class="logo" href="#anasayfa">supTecX<b>.</b></a>
+    <nav class="links" aria-label="Ana menü">
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#alanlar">Alanlar</a>
+      <a href="#yayinlar">Yayınlar</a>
+      <a href="#galeri">Galeri</a>
+      <a class="pill" href="#baglantilar">İletişim ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="anasayfa">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">
+          <i class="dot" aria-hidden="true"></i>
+          Kişisel portfolyo / Creator Studio
+        </div>
+
+        <h1>Ramazan<br><span>Güven.</span></h1>
+
+        <p class="lead">
+          Dijital İçerik Üreticisi
+          <span style="color:var(--violet)">&amp;</span>
+          Yazılım Geliştiricisi
+        </p>
+
+        <p class="intro">
+          Merhaba, ben Ramazan. Dijital dünyada
+          <strong style="color:white">supTecX</strong>
+          adıyla içerik üretiyor, yazılımla ilgileniyor ve
+          oyun topluluklarıyla buluşuyorum.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#yayinlar">Yayın kanallarım ↗</a>
+          <a class="btn btn-outline" href="#hakkimda">Beni tanıyın ↓</a>
+        </div>
+      </div>
+
+      <div class="portrait-frame">
+        <img
+          class="portrait"
+          src="ramazan-guven-profil.png"
+          alt="Ramazan Güven'in sahilde çekilmiş portresi"
+          fetchpriority="high"
+        >
+        <div class="floating">
+          <span>●</span> supTecX / Creator Studio
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>supTecX</strong>
+        <small>Dijital kimliğim</small>
+      </div>
+      <div class="stat">
+        <strong>Kick + Twitch</strong>
+        <small>Yayın platformlarım</small>
+      </div>
+      <div class="stat">
+        <strong>6 platform</strong>
+        <small>Dijital bağlantılarım</small>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="hakkimda">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">01 / Hakkımda</div>
+          <h2>Biraz beni tanıyın.</h2>
+        </div>
+        <p>Dijital dünyadaki yolculuğum, ilgi alanlarım ve kişisel bilgilerim.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="surface">
+          <p>
+            Ben <strong style="color:white">Ramazan Güven</strong>.
+            Dijital dünyada
+            <strong style="color:var(--violet)">supTecX</strong>
+            kullanıcı adıyla faaliyet gösteren bir dijital içerik
+            üreticisi ve yazılım geliştiricisiyim.
+          </p>
+          <p>
+            Teknoloji, yazılım geliştirme, oyunlar ve oyun
+            topluluklarıyla ilgileniyorum. İçerik üretimini ve
+            dijital dünyaya olan ilgimi bir araya getiriyorum.
+          </p>
+          <p>
+            Bu web sitesinde çalışmalarımı, yayın platformlarımı,
+            fotoğraf galerimi ve resmi dijital profillerimi paylaşıyorum.
+          </p>
+        </div>
+
+        <div class="surface details">
+          <div class="detail">
+            <small>Ad soyad</small>
+            <strong>Ramazan Güven</strong>
+          </div>
+          <div class="detail">
+            <small>Diğer ad</small>
+            <strong>supTecX</strong>
+          </div>
+          <div class="detail">
+            <small>Doğum tarihi</small>
+            <strong>4 Aralık 2002</strong>
+          </div>
+          <div class="detail">
+            <small>Doğum yeri</small>
+            <strong>Ortahisar, Trabzon, Türkiye</strong>
+          </div>
+          <div class="detail">
+            <small>Alan</small>
+            <strong>İçerik üretimi &amp; yazılım</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="alanlar">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">02 / İlgi alanlarım</div>
+          <h2>Ürettiğim dünya.</h2>
+        </div>
+        <p>Teknolojiyle yaratıcılığın kesiştiği alanlara odaklanıyorum.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon">⌘</div>
+          <h3>Yazılım &amp; teknoloji</h3>
+          <p>Yazılım geliştirme, yeni teknolojiler ve dijital projeler.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">▶</div>
+          <h3>İçerik &amp; yayın</h3>
+          <p>Oyun yayınları, topluluk etkileşimi ve dijital içerikler.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">✦</div>
+          <h3>Oyun toplulukları</h3>
+          <p>Oyun dünyası, arkadaşlarla deneyimler ve paylaşım.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="yayinlar">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">03 / Canlı yayın</div>
+          <h2>Yayınlarda buluşalım.</h2>
+        </div>
+        <p>Oyun, teknoloji ve sohbet içeriklerim için yayın kanallarıma göz atın.</p>
+      </div>
+
+      <div class="stream-grid">
+        <a class="stream"
+           href="https://kick.com/suptecx"
+           target="_blank"
+           rel="me noopener noreferrer">
+          <span class="stream-label">Kick / suptecx</span>
+          <div>
+            <h3>Kick</h3>
+            <p>Kick kanalımı ziyaret et</p>
+          </div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="stream twitch"
+           href="https://www.twitch.tv/suptecx"
+           target="_blank"
+           rel="me noopener noreferrer">
+          <span class="stream-label">Twitch / suptecx</span>
+          <div>
+            <h3>Twitch</h3>
+            <p>Twitch kanalımı ziyaret et</p>
+          </div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projeler">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">04 / Projeler</div>
+          <h2>Çalışmalarım.</h2>
+        </div>
+        <p>Yazılım ve dijital projelerimi GitHub profilimde paylaşıyorum.</p>
+      </div>
+
+      <div class="surface">
+        <p>
+          Herkese açık çalışmalarımı ve geliştirdiğim projeleri
+          GitHub üzerinden inceleyebilirsiniz.
+        </p>
+        <a class="btn btn-outline"
+           href="https://github.com/supTecX"
+           target="_blank"
+           rel="me noopener noreferrer">
+          GitHub profilim ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="galeri">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">05 / Fotoğraf galerisi</div>
+          <h2>Kareler &amp; anılar.</h2>
+        </div>
+        <p>Fotoğraf arşivimden seçtiğim birkaç kare.</p>
+      </div>
 
       <div class="gallery">
         <figure>
-          <img src="ramazan-guven-gece-portresi.jpg"
-               alt="Ramazan Güven gece portresi"
-               loading="lazy">
+          <img
+            src="ramazan-guven-gece-portresi.jpg"
+            alt="Ramazan Güven gece portresi"
+            loading="lazy"
+          >
           <figcaption>Gece portresi</figcaption>
         </figure>
 
         <figure>
-          <img src="ramazan-guven-acik-hava-portresi.jpg"
-               alt="Ramazan Güven açık hava portresi"
-               loading="lazy">
+          <img
+            src="ramazan-guven-acik-hava-portresi.jpg"
+            alt="Ramazan Güven açık hava portresi"
+            loading="lazy"
+          >
           <figcaption>Açık hava portresi</figcaption>
         </figure>
 
         <figure>
-          <img src="ramazan-guven-sonbahar-portresi.jpg"
-               alt="Ramazan Güven sonbahar portresi"
-               loading="lazy">
+          <img
+            src="ramazan-guven-sonbahar-portresi.jpg"
+            alt="Ramazan Güven sonbahar portresi"
+            loading="lazy"
+          >
           <figcaption>Sonbahar portresi</figcaption>
         </figure>
       </div>
     </div>
+  </section>
+
+  <section class="section" id="baglantilar">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">06 / Bağlantılar</div>
+          <h2>Dijitalde bağlantı kuralım.</h2>
+        </div>
+        <p>Resmi sosyal medya ve topluluk profillerime buradan ulaşabilirsiniz.</p>
+      </div>
+
+      <div class="social">
+        <a href="https://github.com/supTecX" target="_blank" rel="me noopener noreferrer">
+          GitHub <small>↗</small>
+        </a>
+        <a href="https://www.instagram.com/gvn_ramazan61/" target="_blank" rel="me noopener noreferrer">
+          Instagram <small>↗</small>
+        </a>
+        <a href="https://steamcommunity.com/id/supTecX/" target="_blank" rel="me noopener noreferrer">
+          Steam <small>↗</small>
+        </a>
+        <a href="https://www.tiktok.com/@suptecx" target="_blank" rel="me noopener noreferrer">
+          TikTok <small>↗</small>
+        </a>
+        <a href="https://kick.com/suptecx" target="_blank" rel="me noopener noreferrer">
+          Kick <small>↗</small>
+        </a>
+        <a href="https://www.twitch.tv/suptecx" target="_blank" rel="me noopener noreferrer">
+          Twitch <small>↗</small>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Ramazan Güven · supTecX</span>
+    <span>Creator Studio · Kişisel web sitesi</span>
   </div>
-</section>
-    <section class="content" id="iletisim"><div class="wrap section-grid"><div class="section-tag">05 / Bağlantılar</div><div><h2>Benimle bağlantı kurun.</h2><div class="linklist"><a href="https://github.com/supTecX" target="_blank" rel="me noopener noreferrer">GitHub ↗</a><a href="https://www.instagram.com/gvn_ramazan61/" target="_blank" rel="me noopener noreferrer">Instagram ↗</a><a href="https://steamcommunity.com/id/supTecX/" target="_blank" rel="me noopener noreferrer">Steam ↗</a><a href="https://www.tiktok.com/@suptecx" target="_blank" rel="me noopener noreferrer">TikTok ↗</a><a href="https://kick.com/suptecx" target="_blank" rel="me noopener noreferrer">Kick ↗</a><a href="https://www.twitch.tv/suptecx" target="_blank" rel="me noopener noreferrer">Twitch ↗</a></div></div></div></section>
-  </main>
-  <footer class="wrap footer"><span>© <span id="year">2026</span> Ramazan Güven</span><span>supTecX · Kişisel web sitesi</span></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
