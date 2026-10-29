@@ -1,27 +1,30 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080d1a">
-<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#070913">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
 
-<title>Ramazan Güven | supTecX — Dijital İçerik Üreticisi ve Yazılım Geliştiricisi</title>
-<meta name="description" content="Ramazan Güven (supTecX) — dijital içerik üreticisi ve yazılım geliştiricisi. Kick ve Twitch yayınları, fotoğraf galerisi, projeleri ve sosyal medya profilleri.">
+<title>Ramazan Güven | supTecX — Gaming Universe</title>
+<meta name="description" content="Ramazan Güven (supTecX), dijital içerik üreticisi ve yazılım geliştiricisi. Kick ve Twitch yayınları, oyun toplulukları, projeler ve fotoğraf galerisi.">
 <link rel="canonical" href="https://suptecx.github.io/">
 
 <meta property="og:type" content="profile">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:title" content="Ramazan Güven | supTecX">
-<meta property="og:description" content="Dijital içerik, yazılım ve yayın dünyası. Ramazan Güven'in kişisel web sitesi.">
+<meta property="og:description" content="supTecX Gaming Universe — Dijital içerik, yazılım ve oyun dünyası.">
 <meta property="og:url" content="https://suptecx.github.io/">
 <meta property="og:image" content="https://suptecx.github.io/ramazan-guven-profil.png">
+<meta name="twitter:card" content="summary_large_image">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
+  "@id": "https://suptecx.github.io/#profilepage",
   "url": "https://suptecx.github.io/",
   "name": "Ramazan Güven | supTecX",
   "mainEntity": {
@@ -53,13 +56,17 @@
 <style>
 :root {
   color-scheme: dark;
-  --bg: #080d1a;
-  --panel: #111a2c;
-  --line: #28334a;
-  --ink: #f6f7ff;
-  --muted: #a5b0c7;
-  --violet: #9b85ff;
-  --cyan: #6ce4e3;
+  --bg: #070913;
+  --bg2: #0b1020;
+  --card: #11172b;
+  --line: #27304c;
+  --white: #f7f8ff;
+  --muted: #a4aec9;
+  --purple: #a16bff;
+  --cyan: #43e7f5;
+  --pink: #ff4ca9;
+  --green: #53e59a;
+  --gradient: linear-gradient(110deg,#a16bff,#43e7f5,#ff4ca9);
 }
 
 * { box-sizing: border-box; }
@@ -69,141 +76,229 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--ink);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  color: var(--white);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
   line-height: 1.65;
+  overflow-x: hidden;
 }
 
 body::before {
   content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 790px;
-  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -2;
   background:
-    radial-gradient(ellipse at 85% 10%, #4b2d934d, transparent 43%),
-    radial-gradient(ellipse at 12% 8%, #12577940, transparent 48%);
+    radial-gradient(ellipse at 80% 0%,#6635b838,transparent 40%),
+    radial-gradient(ellipse at 5% 60%,#116f9c20,transparent 40%),
+    var(--bg);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .17;
+  background-image:
+    linear-gradient(#8a94b11b 1px,transparent 1px),
+    linear-gradient(90deg,#8a94b11b 1px,transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to bottom,#000,transparent 85%);
 }
 
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; }
-a:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
-
-.wrap {
-  max-width: 1170px;
-  margin: auto;
-  padding: 0 28px;
+button { font: inherit; cursor: pointer; }
+a:focus-visible,button:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 4px;
 }
 
+::selection { background: #8457dd; color: white; }
+
+.wrap {
+  width: min(1180px,calc(100% - 44px));
+  margin: auto;
+}
+
+/* INTRO */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #050711;
+  display: grid;
+  place-items: center;
+  transition: opacity .6s,visibility .6s;
+}
+
+.intro-screen.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-inner {
+  text-align: center;
+  width: min(350px,85vw);
+}
+
+.intro-logo {
+  font-size: clamp(45px,9vw,74px);
+  font-weight: 950;
+  letter-spacing: -.09em;
+  background: var(--gradient);
+  background-size: 220% 100%;
+  color: transparent;
+  background-clip: text;
+  animation: glow 2s ease-in-out infinite alternate,
+             shine 3s linear infinite;
+}
+
+.intro-sub {
+  font-size: 11px;
+  letter-spacing: .42em;
+  color: #adb9d4;
+  margin: 4px 0 27px;
+}
+
+.progress {
+  height: 3px;
+  border-radius: 5px;
+  background: #29304c;
+  overflow: hidden;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--gradient);
+  animation: load 1.35s ease-out forwards;
+}
+
+@keyframes load { to { width: 100%; } }
+@keyframes shine { to { background-position: 220% 0; } }
+@keyframes glow {
+  from { filter: drop-shadow(0 0 4px #915eff); }
+  to { filter: drop-shadow(0 0 22px #5e9fff); }
+}
+
+/* NAV */
 .header {
-  position: relative;
-  z-index: 2;
-  border-bottom: 1px solid #ffffff18;
-  background: #0b1120cc;
-  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #080b17dc;
+  border-bottom: 1px solid #ffffff17;
+  backdrop-filter: blur(18px);
 }
 
 .nav {
+  min-height: 79px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 22px;
-  min-height: 82px;
+  gap: 20px;
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: 850;
-  letter-spacing: -.06em;
+  font-size: 25px;
+  font-weight: 950;
+  letter-spacing: -.07em;
 }
 
-.logo b { color: var(--violet); }
+.logo span { color: var(--cyan); }
 
-.links {
+.menu {
   display: flex;
-  gap: 23px;
-  flex-wrap: wrap;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 23px;
 }
 
-.links a {
-  color: #c7cfe0;
+.menu a {
   font-size: 13px;
-  font-weight: 650;
+  font-weight: 750;
+  color: #c5cee2;
+  transition: color .2s;
 }
 
-.links a:hover, .social a:hover { color: white; }
+.menu a:hover { color: var(--cyan); }
 
-.pill {
-  border: 1px solid #7b66e2a6;
-  background: #33275e80;
-  border-radius: 50px;
-  padding: 10px 17px;
-  color: white !important;
+.menu .nav-cta {
+  border: 1px solid #895fff;
+  background: #6436a833;
+  color: white;
+  padding: 9px 17px;
+  border-radius: 10px;
 }
 
+/* HERO */
 .hero {
   position: relative;
-  padding: 85px 0 110px;
+  padding: 95px 0 90px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
-  gap: 75px;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 65px;
   align-items: center;
 }
 
-.eyebrow, .kicker {
+.status {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--cyan);
+  border: 1px solid #7856c36e;
+  border-radius: 100px;
+  background: #4a2c7e35;
+  padding: 8px 15px;
+  color: #d9c9ff;
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: .18em;
+  letter-spacing: .1em;
   text-transform: uppercase;
 }
 
-.dot {
-  height: 8px;
+.status i {
   width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--cyan);
-  box-shadow: 0 0 18px var(--cyan);
+  box-shadow: 0 0 13px var(--cyan);
 }
 
 h1 {
-  font-size: clamp(58px, 8vw, 108px);
-  line-height: .98;
+  font-size: clamp(61px,8vw,110px);
   letter-spacing: -.085em;
-  margin: 23px 0 26px;
+  line-height: .98;
+  margin: 25px 0;
 }
 
-h1 span {
-  background: linear-gradient(100deg, #fff 10%, #c6b9ff 52%, #7ce1ec);
-  -webkit-background-clip: text;
+.gradient-text {
+  background: var(--gradient);
+  background-size: 200% 100%;
   background-clip: text;
   color: transparent;
+  animation: shine 8s linear infinite;
 }
 
-.lead {
+.hero-role {
+  color: #d8def1;
   font-size: 20px;
-  line-height: 1.6;
-  color: #d6dcf0;
-  max-width: 580px;
-  margin: 0 0 20px;
+  font-weight: 650;
 }
 
-.intro {
+.hero-description {
+  max-width: 570px;
   color: var(--muted);
-  max-width: 550px;
-  margin-bottom: 30px;
+  margin: 18px 0 30px;
 }
 
-.actions {
+.buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -213,143 +308,164 @@ h1 span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  border-radius: 13px;
-  padding: 13px 21px;
-  font-weight: 750;
+  padding: 13px 23px;
+  min-height: 49px;
+  border-radius: 12px;
+  font-weight: 800;
   font-size: 14px;
-  transition: transform .2s;
+  transition: transform .2s,box-shadow .2s;
 }
 
-.btn:hover { transform: translateY(-2px); }
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px #854cff44;
+}
 
-.btn-primary {
-  background: linear-gradient(115deg, #8b73fa, #5c9bea);
+.btn-main {
+  background: linear-gradient(115deg,#8c58ff,#556af2);
   color: white;
 }
 
-.btn-outline {
-  border: 1px solid #4d5a77;
-  background: #18213a;
-  color: #f5f6ff;
+.btn-ghost {
+  border: 1px solid #495575;
+  background: #151d32;
 }
 
-.portrait-frame {
+.profile-shell {
   position: relative;
-  max-width: 380px;
+  width: min(380px,100%);
   margin: auto;
-  width: 100%;
 }
 
-.portrait-frame::before {
+.profile-shell::before {
   content: "";
   position: absolute;
-  inset: -12px;
-  border-radius: 31px;
-  border: 1px solid #a18dff61;
-  transform: rotate(4deg);
+  inset: -8px;
+  border-radius: 30px;
+  background: var(--gradient);
+  filter: blur(18px);
+  opacity: .34;
 }
 
-.portrait {
-  display: block;
-  width: 100%;
-  height: 475px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 25px;
-  box-shadow: 0 25px 90px #0009;
-  border: 1px solid #ffffff24;
-}
-
-.floating {
+.profile-shell::after {
+  content: "";
   position: absolute;
-  bottom: -20px;
-  left: -20px;
-  padding: 13px 18px;
-  background: #151e34f2;
-  border: 1px solid #465275;
-  border-radius: 14px;
-  box-shadow: 0 18px 38px #0008;
-  font-size: 13px;
-  font-weight: 750;
+  inset: -2px;
+  border-radius: 25px;
+  border: 1px solid #a37cff;
+  pointer-events: none;
 }
 
-.floating span { color: var(--cyan); }
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 65px;
-}
-
-.stat {
-  border: 1px solid var(--line);
-  background: #141e31b5;
-  border-radius: 15px;
-  padding: 19px 23px;
-}
-
-.stat strong {
+.profile-img {
   display: block;
-  font-size: 22px;
+  position: relative;
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid #ffffff33;
+  box-shadow: 0 25px 65px #0009;
+}
+
+.profile-tag {
+  position: absolute;
+  bottom: -18px;
+  left: -18px;
+  background: #10182df2;
+  border: 1px solid #7660b9;
+  padding: 12px 19px;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: 850;
+  box-shadow: 0 12px 30px #0009;
+}
+
+.profile-tag b { color: var(--cyan); }
+
+.mini-stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+  margin-top: 75px;
+}
+
+.mini-stat {
+  border: 1px solid var(--line);
+  background: #11182cbb;
+  padding: 20px 23px;
+  border-radius: 15px;
+}
+
+.mini-stat strong {
+  display: block;
+  font-size: 21px;
   letter-spacing: -.04em;
 }
 
-.stat small { color: var(--muted); }
+.mini-stat small { color: var(--muted); }
 
-section.section {
-  padding: 88px 0;
-  border-top: 1px solid #ffffff14;
-  position: relative;
+/* SECTIONS */
+.section {
+  padding: 95px 0;
+  border-top: 1px solid #ffffff13;
+  scroll-margin-top: 95px;
+}
+
+.kicker {
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: 12px;
+  font-weight: 850;
 }
 
 .section-head {
   display: flex;
-  justify-content: space-between;
   align-items: end;
-  gap: 24px;
-  margin-bottom: 32px;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 35px;
 }
 
 .section-head h2 {
-  font-size: clamp(30px, 4.5vw, 46px);
+  font-size: clamp(32px,4.5vw,49px);
+  line-height: 1.1;
   letter-spacing: -.06em;
-  line-height: 1.12;
   margin: 10px 0;
 }
 
 .section-head p {
-  max-width: 460px;
   color: var(--muted);
+  max-width: 410px;
   margin: 0;
 }
+
+.panel {
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg,#141c32,#0f1526);
+  border-radius: 22px;
+  padding: 29px;
+}
+
+.panel p { color: #bbc5dc; }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1.3fr .7fr;
-  gap: 22px;
+  gap: 20px;
 }
 
-.surface {
-  background: linear-gradient(145deg, #151f35, #10192a);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 30px;
+.details {
+  display: grid;
+  gap: 14px;
 }
-
-.surface p { color: #bac4d9; }
-.surface p:first-child { margin-top: 0; }
-.surface p:last-child { margin-bottom: 0; }
-
-.details { display: grid; gap: 15px; }
 
 .detail {
   border-bottom: 1px solid var(--line);
-  padding-bottom: 13px;
+  padding-bottom: 12px;
 }
 
-.detail:last-child { border: 0; padding: 0; }
+.detail:last-child { border: 0; }
 
 .detail small {
   display: block;
@@ -359,171 +475,300 @@ section.section {
 
 .detail strong { font-size: 15px; }
 
+/* 3D CARDS */
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 18px;
 }
 
-.card {
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  background: #121c30;
-  padding: 26px;
-  transition: transform .2s, border-color .2s;
+.tilt {
+  transform-style: preserve-3d;
+  transition: transform .18s ease,border-color .2s;
+  will-change: auto;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  border-color: #796ad5;
-}
+.tilt:hover { border-color: #a16bff99; }
 
-.card-icon {
-  width: 43px;
-  height: 43px;
-  border-radius: 13px;
-  display: grid;
-  place-items: center;
-  background: #46396b;
-  color: #d7cfff;
-  font-size: 21px;
-  margin-bottom: 22px;
-}
-
-.card h3 { font-size: 19px; margin: 0 0 9px; }
-.card p { color: var(--muted); font-size: 14px; margin: 0; }
-
-.stream-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-
-.stream {
+.feature {
   position: relative;
   overflow: hidden;
-  min-height: 220px;
+  min-height: 240px;
+  border: 1px solid var(--line);
+  background: #121a2f;
+  border-radius: 21px;
+  padding: 27px;
+}
+
+.feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    330px circle at var(--mx,50%) var(--my,50%),
+    #9869ff24,transparent 65%
+  );
+  transition: opacity .25s;
+}
+
+.feature:hover::before { opacity: 1; }
+
+.feature-icon {
+  width: 47px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #48336c;
+  color: #e0ccff;
+  font-size: 23px;
+  margin-bottom: 25px;
+}
+
+.feature h3 { margin: 0 0 8px; font-size: 19px; }
+.feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* STREAMING CENTER */
+.stream-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.stream-card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 22px;
-  padding: 27px;
-  border: 1px solid #ffffff26;
-  background:
-    radial-gradient(circle at 90% 10%, #3a8b54aa, transparent 55%),
-    #152539;
+  min-height: 285px;
+  padding: 30px;
+  border: 1px solid #ffffff28;
+  border-radius: 24px;
+  background: linear-gradient(130deg,#15372a,#101c2d);
+  transition: transform .25s,border-color .25s;
 }
 
-.stream.twitch {
-  background:
-    radial-gradient(circle at 90% 10%, #713bd0aa, transparent 55%),
-    #1d1835;
+.stream-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--green);
 }
 
-.stream-label {
-  font-size: 12px;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  font-weight: 800;
-  color: #e0e8f5;
+.stream-card.twitch {
+  background: linear-gradient(130deg,#34215b,#141629);
 }
 
-.stream h3 {
-  font-size: 30px;
+.stream-card.twitch:hover { border-color: var(--purple); }
+
+.stream-card::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  right: -90px;
+  top: -100px;
+  background: #53e59a33;
+  filter: blur(30px);
+}
+
+.stream-card.twitch::before { background: #a16bff55; }
+
+.stream-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.platform {
+  font-size: 13px;
+  letter-spacing: .17em;
+  font-weight: 900;
+}
+
+.channel-tag {
+  border: 1px solid #ffffff3b;
+  background: #ffffff13;
+  border-radius: 50px;
+  padding: 5px 11px;
+  font-size: 11px;
+  color: #e0e6f2;
+}
+
+.stream-card h3 {
+  font-size: 36px;
   margin: 0;
-  letter-spacing: -.04em;
+  letter-spacing: -.05em;
 }
 
-.stream p { color: #cbd6e5; margin: 4px 0 0; }
-.stream .arrow { align-self: end; font-size: 24px; }
+.stream-card p { margin: 2px 0 0; color: #c8d2e5; }
 
+.stream-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 10px;
+}
+
+.stream-arrow { font-size: 29px; }
+
+/* GALLERY */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 17px;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 18px;
 }
 
 .gallery figure { margin: 0; min-width: 0; }
 
+.gallery button {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
 .gallery img {
   display: block;
   width: 100%;
-  height: 350px;
+  height: 355px;
   object-fit: cover;
-  object-position: center;
-  border-radius: 18px;
   border: 1px solid #ffffff24;
-  transition: transform .2s;
+  border-radius: 20px;
+  transition: transform .35s,filter .35s;
 }
 
-.gallery img:hover { transform: translateY(-4px); }
+.gallery button:hover img {
+  transform: scale(1.055);
+  filter: brightness(1.1);
+}
 
 .gallery figcaption {
-  font-size: 13px;
+  padding: 11px 3px;
   color: var(--muted);
-  padding: 10px 3px;
+  font-size: 13px;
 }
 
-.social {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 13px;
-}
-
-.social a {
-  display: flex;
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
   align-items: center;
-  justify-content: space-between;
-  padding: 18px 20px;
-  border-radius: 15px;
-  background: #141f33;
-  border: 1px solid var(--line);
-  font-weight: 750;
-  transition: background .2s;
+  justify-content: center;
+  padding: 60px 20px 25px;
+  background: #02040bef;
+  backdrop-filter: blur(15px);
 }
 
-.social a:hover { background: #24314b; }
-.social small { color: var(--violet); }
+.lightbox.open { display: flex; }
+
+.lightbox img {
+  display: block;
+  max-width: min(95vw,1100px);
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.lightbox-close {
+  position: absolute;
+  right: 22px;
+  top: 17px;
+  border: 1px solid #66718a;
+  background: #18213a;
+  color: white;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 23px;
+}
+
+/* SOCIAL */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+}
+
+.social-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--line);
+  background: #121a2d;
+  font-weight: 800;
+  transition: background .2s,border-color .2s,transform .2s;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  border-color: #8e6bff;
+  background: #202744;
+}
+
+.social-link span { color: var(--cyan); }
 
 footer {
   border-top: 1px solid var(--line);
-  padding: 30px 0 45px;
+  padding: 30px 0 40px;
   color: var(--muted);
   font-size: 13px;
 }
 
-.foot {
+.footer-row {
   display: flex;
   justify-content: space-between;
   gap: 15px;
   flex-wrap: wrap;
 }
 
-@media (max-width: 850px) {
-  .hero-grid, .about-grid { grid-template-columns: 1fr; }
-  .portrait-frame { max-width: 360px; }
-  .hero { padding: 65px 0 85px; }
-  .cards { grid-template-columns: 1fr 1fr; }
-  .gallery img { height: 300px; }
-  .nav { flex-wrap: wrap; padding: 16px 0; }
-  .links { gap: 13px; }
+/* SCROLL REVEAL */
+.js-enabled .reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease,transform .7s ease;
 }
 
-@media (max-width: 580px) {
-  .wrap { padding: 0 19px; }
-  .links { gap: 12px; }
-  .links a { font-size: 12px; }
-  .hero { padding: 50px 0 70px; }
-  h1 { font-size: 64px; }
-  .lead { font-size: 17px; }
-  .portrait { height: 400px; }
-  .stats, .cards, .stream-grid, .social { grid-template-columns: 1fr; }
-  .stats { margin-top: 55px; }
-  .gallery { grid-template-columns: 1fr 1fr; }
-  .gallery img { height: 245px; }
+.js-enabled .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .hero-grid,.about-grid { grid-template-columns: 1fr; }
+  .hero-grid { gap: 65px; }
+  .profile-shell { max-width: 360px; }
+  .nav { padding: 15px 0; flex-wrap: wrap; }
+  .menu { gap: 15px; }
+  .cards { grid-template-columns: repeat(2,1fr); }
+  .gallery img { height: 290px; }
+}
+
+@media (max-width: 620px) {
+  .wrap { width: min(100% - 34px,1180px); }
+  .hero { padding: 58px 0 70px; }
+  h1 { font-size: clamp(57px,13vw,79px); }
+  .hero-role { font-size: 17px; }
+  .section { padding: 70px 0; }
   .section-head { display: block; }
-  section.section { padding: 65px 0; }
-  .surface { padding: 22px; }
+  .mini-stats,.cards,.stream-grid,.social-grid {
+    grid-template-columns: 1fr;
+  }
+  .mini-stats { margin-top: 65px; }
+  .gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .gallery img { height: 245px; }
+  .profile-img { height: 420px; }
+  .panel { padding: 22px; }
+  .menu a { font-size: 12px; }
 }
 
 @media (max-width: 390px) {
@@ -533,319 +778,540 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition: none !important; }
+  *,*::before,*::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .js-enabled .reveal { opacity: 1; transform: none; }
+  .intro-screen { display: none; }
 }
 </style>
 </head>
 
 <body>
+
+<!-- ANIMASYONLU GIRIS -->
+<div class="intro-screen" id="intro" aria-hidden="true">
+  <div class="intro-inner">
+    <div class="intro-logo">supTecX</div>
+    <div class="intro-sub">GAMING UNIVERSE</div>
+    <div class="progress"><span></span></div>
+  </div>
+</div>
+
+<!-- MENU -->
 <header class="header">
-  <div class="wrap nav">
-    <a class="logo" href="#anasayfa">supTecX<b>.</b></a>
-    <nav class="links" aria-label="Ana menü">
+  <nav class="wrap nav" aria-label="Ana menü">
+    <a class="logo" href="#anasayfa">supTecX<span>.</span></a>
+    <div class="menu">
       <a href="#hakkimda">Hakkımda</a>
       <a href="#alanlar">Alanlar</a>
       <a href="#yayinlar">Yayınlar</a>
       <a href="#galeri">Galeri</a>
-      <a class="pill" href="#baglantilar">İletişim ↗</a>
-    </nav>
-  </div>
+      <a class="nav-cta" href="#baglantilar">Bağlantılar ↗</a>
+    </div>
+  </nav>
 </header>
 
 <main id="anasayfa">
-  <div class="wrap hero">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">
-          <i class="dot" aria-hidden="true"></i>
-          Kişisel portfolyo / Creator Studio
+        <div class="status">
+          <i aria-hidden="true"></i>
+          Creator Studio / Gaming Universe
         </div>
 
-        <h1>Ramazan<br><span>Güven.</span></h1>
+        <h1>Ramazan<br><span class="gradient-text">Güven.</span></h1>
 
-        <p class="lead">
+        <div class="hero-role">
           Dijital İçerik Üreticisi
-          <span style="color:var(--violet)">&amp;</span>
+          <span style="color:var(--purple)">&amp;</span>
           Yazılım Geliştiricisi
-        </p>
+        </div>
 
-        <p class="intro">
-          Merhaba, ben Ramazan. Dijital dünyada
+        <p class="hero-description">
+          Merhaba! Ben Ramazan Güven. Dijital dünyada
           <strong style="color:white">supTecX</strong>
-          adıyla içerik üretiyor, yazılımla ilgileniyor ve
-          oyun topluluklarıyla buluşuyorum.
+          adıyla içerik üretiyor, yazılımla ilgileniyor
+          ve oyun topluluklarıyla bir araya geliyorum.
         </p>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="#yayinlar">Yayın kanallarım ↗</a>
-          <a class="btn btn-outline" href="#hakkimda">Beni tanıyın ↓</a>
+        <div class="buttons">
+          <a class="btn btn-main" href="#yayinlar">
+            Yayıncı Merkezi ↗
+          </a>
+          <a class="btn btn-ghost" href="#hakkimda">
+            Beni Tanıyın ↓
+          </a>
         </div>
       </div>
 
-      <div class="portrait-frame">
+      <div class="profile-shell">
         <img
-          class="portrait"
+          class="profile-img"
           src="ramazan-guven-profil.png"
-          alt="Ramazan Güven'in sahilde çekilmiş portresi"
+          alt="Ramazan Güven, supTecX profil fotoğrafı"
           fetchpriority="high"
         >
-        <div class="floating">
-          <span>●</span> supTecX / Creator Studio
+        <div class="profile-tag">
+          <b>●</b> supTecX / DIGITAL CREATOR
         </div>
       </div>
     </div>
 
-    <div class="stats">
-      <div class="stat">
+    <div class="mini-stats">
+      <div class="mini-stat">
         <strong>supTecX</strong>
-        <small>Dijital kimliğim</small>
+        <small>Dijital kimlik</small>
       </div>
-      <div class="stat">
+      <div class="mini-stat">
         <strong>Kick + Twitch</strong>
-        <small>Yayın platformlarım</small>
+        <small>Yayın platformları</small>
       </div>
-      <div class="stat">
-        <strong>6 platform</strong>
-        <small>Dijital bağlantılarım</small>
+      <div class="mini-stat">
+        <strong>6 sosyal profil</strong>
+        <small>Dijital bağlantılar</small>
       </div>
     </div>
   </div>
+</section>
 
-  <section class="section" id="hakkimda">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="kicker">01 / Hakkımda</div>
-          <h2>Biraz beni tanıyın.</h2>
-        </div>
-        <p>Dijital dünyadaki yolculuğum, ilgi alanlarım ve kişisel bilgilerim.</p>
+<!-- HAKKIMDA -->
+<section class="section" id="hakkimda">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <div class="kicker">01 / Hakkımda</div>
+        <h2>Oyunun ötesinde.</h2>
+      </div>
+      <p>Teknoloji, yazılım ve içerik üretimiyle şekillenen dijital yolculuğum.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="panel">
+        <p>
+          Ben <strong style="color:white">Ramazan Güven</strong>.
+          Dijital dünyada
+          <strong style="color:var(--purple)">supTecX</strong>
+          kullanıcı adıyla faaliyet gösteren bir dijital içerik
+          üreticisi ve yazılım geliştiricisiyim.
+        </p>
+        <p>
+          Teknoloji, yazılım geliştirme, oyunlar ve oyun
+          topluluklarıyla ilgileniyorum. İçerik üretimini
+          ve dijital dünyaya olan ilgimi bir araya getiriyorum.
+        </p>
+        <p>
+          Bu kişisel web sitesinde çalışmalarımı, yayın
+          platformlarımı, fotoğraf galerimi ve resmi dijital
+          profillerimi paylaşıyorum.
+        </p>
       </div>
 
-      <div class="about-grid">
-        <div class="surface">
-          <p>
-            Ben <strong style="color:white">Ramazan Güven</strong>.
-            Dijital dünyada
-            <strong style="color:var(--violet)">supTecX</strong>
-            kullanıcı adıyla faaliyet gösteren bir dijital içerik
-            üreticisi ve yazılım geliştiricisiyim.
-          </p>
-          <p>
-            Teknoloji, yazılım geliştirme, oyunlar ve oyun
-            topluluklarıyla ilgileniyorum. İçerik üretimini ve
-            dijital dünyaya olan ilgimi bir araya getiriyorum.
-          </p>
-          <p>
-            Bu web sitesinde çalışmalarımı, yayın platformlarımı,
-            fotoğraf galerimi ve resmi dijital profillerimi paylaşıyorum.
-          </p>
+      <div class="panel details">
+        <div class="detail">
+          <small>Ad Soyad</small>
+          <strong>Ramazan Güven</strong>
         </div>
-
-        <div class="surface details">
-          <div class="detail">
-            <small>Ad soyad</small>
-            <strong>Ramazan Güven</strong>
-          </div>
-          <div class="detail">
-            <small>Diğer ad</small>
-            <strong>supTecX</strong>
-          </div>
-          <div class="detail">
-            <small>Doğum tarihi</small>
-            <strong>4 Aralık 2002</strong>
-          </div>
-          <div class="detail">
-            <small>Doğum yeri</small>
-            <strong>Ortahisar, Trabzon, Türkiye</strong>
-          </div>
-          <div class="detail">
-            <small>Alan</small>
-            <strong>İçerik üretimi &amp; yazılım</strong>
-          </div>
+        <div class="detail">
+          <small>Dijital Ad</small>
+          <strong>supTecX</strong>
+        </div>
+        <div class="detail">
+          <small>Doğum Tarihi</small>
+          <strong>4 Aralık 2002</strong>
+        </div>
+        <div class="detail">
+          <small>Doğum Yeri</small>
+          <strong>Ortahisar, Trabzon, Türkiye</strong>
+        </div>
+        <div class="detail">
+          <small>Alan</small>
+          <strong>İçerik Üretimi &amp; Yazılım</strong>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="alanlar">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="kicker">02 / İlgi alanlarım</div>
-          <h2>Ürettiğim dünya.</h2>
-        </div>
-        <p>Teknolojiyle yaratıcılığın kesiştiği alanlara odaklanıyorum.</p>
+<!-- ALANLAR -->
+<section class="section" id="alanlar">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <div class="kicker">02 / Uzmanlık &amp; İlgi</div>
+        <h2>Dijital evrenim.</h2>
       </div>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card-icon">⌘</div>
-          <h3>Yazılım &amp; teknoloji</h3>
-          <p>Yazılım geliştirme, yeni teknolojiler ve dijital projeler.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">▶</div>
-          <h3>İçerik &amp; yayın</h3>
-          <p>Oyun yayınları, topluluk etkileşimi ve dijital içerikler.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">✦</div>
-          <h3>Oyun toplulukları</h3>
-          <p>Oyun dünyası, arkadaşlarla deneyimler ve paylaşım.</p>
-        </article>
-      </div>
+      <p>Teknoloji, yaratıcılık ve oyun kültürünün kesiştiği alanlar.</p>
     </div>
-  </section>
 
-  <section class="section" id="yayinlar">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="kicker">03 / Canlı yayın</div>
-          <h2>Yayınlarda buluşalım.</h2>
-        </div>
-        <p>Oyun, teknoloji ve sohbet içeriklerim için yayın kanallarıma göz atın.</p>
+    <div class="cards">
+      <article class="feature tilt">
+        <div class="feature-icon">⌘</div>
+        <h3>Yazılım &amp; Teknoloji</h3>
+        <p>Yazılım geliştirme, teknolojiler ve dijital projeler.</p>
+      </article>
+
+      <article class="feature tilt">
+        <div class="feature-icon">▶</div>
+        <h3>İçerik Üretimi</h3>
+        <p>Canlı yayınlar, dijital içerikler ve topluluk etkileşimi.</p>
+      </article>
+
+      <article class="feature tilt">
+        <div class="feature-icon">✦</div>
+        <h3>Gaming Universe</h3>
+        <p>Oyun dünyası, arkadaşlarla deneyimler ve oyun toplulukları.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- YAYINCI MERKEZI -->
+<section class="section" id="yayinlar">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <div class="kicker">03 / Streamer Hub</div>
+        <h2>Yayıncı Merkezi.</h2>
       </div>
+      <p>Kick ve Twitch kanallarım üzerinden oyun, teknoloji ve sohbet içeriklerime ulaşın.</p>
+    </div>
 
-      <div class="stream-grid">
-        <a class="stream"
-           href="https://kick.com/suptecx"
-           target="_blank"
-           rel="me noopener noreferrer">
-          <span class="stream-label">Kick / suptecx</span>
+    <div class="stream-grid">
+      <a
+        class="stream-card tilt"
+        href="https://kick.com/suptecx"
+        target="_blank"
+        rel="me noopener noreferrer"
+      >
+        <div class="stream-top">
+          <span class="platform">KICK</span>
+          <span class="channel-tag">@suptecx</span>
+        </div>
+        <div class="stream-bottom">
           <div>
             <h3>Kick</h3>
-            <p>Kick kanalımı ziyaret et</p>
+            <p>Kick kanalıma git</p>
           </div>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
+          <span class="stream-arrow" aria-hidden="true">↗</span>
+        </div>
+      </a>
 
-        <a class="stream twitch"
-           href="https://www.twitch.tv/suptecx"
-           target="_blank"
-           rel="me noopener noreferrer">
-          <span class="stream-label">Twitch / suptecx</span>
+      <a
+        class="stream-card twitch tilt"
+        href="https://www.twitch.tv/suptecx"
+        target="_blank"
+        rel="me noopener noreferrer"
+      >
+        <div class="stream-top">
+          <span class="platform">TWITCH</span>
+          <span class="channel-tag">@suptecx</span>
+        </div>
+        <div class="stream-bottom">
           <div>
             <h3>Twitch</h3>
-            <p>Twitch kanalımı ziyaret et</p>
+            <p>Twitch kanalıma git</p>
           </div>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="projeler">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="kicker">04 / Projeler</div>
-          <h2>Çalışmalarım.</h2>
+          <span class="stream-arrow" aria-hidden="true">↗</span>
         </div>
-        <p>Yazılım ve dijital projelerimi GitHub profilimde paylaşıyorum.</p>
-      </div>
-
-      <div class="surface">
-        <p>
-          Herkese açık çalışmalarımı ve geliştirdiğim projeleri
-          GitHub üzerinden inceleyebilirsiniz.
-        </p>
-        <a class="btn btn-outline"
-           href="https://github.com/supTecX"
-           target="_blank"
-           rel="me noopener noreferrer">
-          GitHub profilim ↗
-        </a>
-      </div>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="galeri">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="kicker">05 / Fotoğraf galerisi</div>
-          <h2>Kareler &amp; anılar.</h2>
-        </div>
-        <p>Fotoğraf arşivimden seçtiğim birkaç kare.</p>
+<!-- PROJELER -->
+<section class="section" id="projeler">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <div class="kicker">04 / Projects</div>
+        <h2>Projeler &amp; Çalışmalar.</h2>
       </div>
+      <p>Yazılım ve dijital çalışmalarımı GitHub üzerinden inceleyebilirsiniz.</p>
+    </div>
 
-      <div class="gallery">
-        <figure>
+    <div class="panel">
+      <h3 style="margin-top:0">GitHub / supTecX</h3>
+      <p>
+        Herkese açık kod depolarımı ve yazılım çalışmalarımı
+        GitHub profilimde paylaşıyorum.
+      </p>
+      <a
+        class="btn btn-ghost"
+        href="https://github.com/supTecX"
+        target="_blank"
+        rel="me noopener noreferrer"
+      >
+        GitHub Profilim ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section class="section" id="galeri">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <div class="kicker">05 / Gallery</div>
+        <h2>Fotoğraf Galerisi.</h2>
+      </div>
+      <p>Ramazan Güven'in fotoğraf arşivinden seçilmiş kareler.</p>
+    </div>
+
+    <div class="gallery">
+      <figure>
+        <button
+          type="button"
+          class="gallery-open"
+          aria-label="Gece portresini büyüt"
+          data-src="ramazan-guven-gece-portresi.jpg"
+          data-alt="Ramazan Güven gece portresi"
+        >
           <img
             src="ramazan-guven-gece-portresi.jpg"
             alt="Ramazan Güven gece portresi"
             loading="lazy"
           >
-          <figcaption>Gece portresi</figcaption>
-        </figure>
+        </button>
+        <figcaption>Gece Portresi</figcaption>
+      </figure>
 
-        <figure>
+      <figure>
+        <button
+          type="button"
+          class="gallery-open"
+          aria-label="Açık hava portresini büyüt"
+          data-src="ramazan-guven-acik-hava-portresi.jpg"
+          data-alt="Ramazan Güven açık hava portresi"
+        >
           <img
             src="ramazan-guven-acik-hava-portresi.jpg"
             alt="Ramazan Güven açık hava portresi"
             loading="lazy"
           >
-          <figcaption>Açık hava portresi</figcaption>
-        </figure>
+        </button>
+        <figcaption>Açık Hava Portresi</figcaption>
+      </figure>
 
-        <figure>
+      <figure>
+        <button
+          type="button"
+          class="gallery-open"
+          aria-label="Sonbahar portresini büyüt"
+          data-src="ramazan-guven-sonbahar-portresi.jpg"
+          data-alt="Ramazan Güven sonbahar portresi"
+        >
           <img
             src="ramazan-guven-sonbahar-portresi.jpg"
             alt="Ramazan Güven sonbahar portresi"
             loading="lazy"
           >
-          <figcaption>Sonbahar portresi</figcaption>
-        </figure>
-      </div>
+        </button>
+        <figcaption>Sonbahar Portresi</figcaption>
+      </figure>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="baglantilar">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="kicker">06 / Bağlantılar</div>
-          <h2>Dijitalde bağlantı kuralım.</h2>
-        </div>
-        <p>Resmi sosyal medya ve topluluk profillerime buradan ulaşabilirsiniz.</p>
+<!-- SOSYAL BAGLANTILAR -->
+<section class="section" id="baglantilar">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <div class="kicker">06 / Connect</div>
+        <h2>Bağlantıda kalalım.</h2>
       </div>
-
-      <div class="social">
-        <a href="https://github.com/supTecX" target="_blank" rel="me noopener noreferrer">
-          GitHub <small>↗</small>
-        </a>
-        <a href="https://www.instagram.com/gvn_ramazan61/" target="_blank" rel="me noopener noreferrer">
-          Instagram <small>↗</small>
-        </a>
-        <a href="https://steamcommunity.com/id/supTecX/" target="_blank" rel="me noopener noreferrer">
-          Steam <small>↗</small>
-        </a>
-        <a href="https://www.tiktok.com/@suptecx" target="_blank" rel="me noopener noreferrer">
-          TikTok <small>↗</small>
-        </a>
-        <a href="https://kick.com/suptecx" target="_blank" rel="me noopener noreferrer">
-          Kick <small>↗</small>
-        </a>
-        <a href="https://www.twitch.tv/suptecx" target="_blank" rel="me noopener noreferrer">
-          Twitch <small>↗</small>
-        </a>
-      </div>
+      <p>Resmi sosyal medya, oyun ve yayın profillerime buradan ulaşabilirsiniz.</p>
     </div>
-  </section>
+
+    <div class="social-grid">
+      <a class="social-link"
+         href="https://github.com/supTecX"
+         target="_blank" rel="me noopener noreferrer">
+        GitHub <span>↗</span>
+      </a>
+
+      <a class="social-link"
+         href="https://www.instagram.com/gvn_ramazan61/"
+         target="_blank" rel="me noopener noreferrer">
+        Instagram <span>↗</span>
+      </a>
+
+      <a class="social-link"
+         href="https://steamcommunity.com/id/supTecX/"
+         target="_blank" rel="me noopener noreferrer">
+        Steam <span>↗</span>
+      </a>
+
+      <a class="social-link"
+         href="https://www.tiktok.com/@suptecx"
+         target="_blank" rel="me noopener noreferrer">
+        TikTok <span>↗</span>
+      </a>
+
+      <a class="social-link"
+         href="https://kick.com/suptecx"
+         target="_blank" rel="me noopener noreferrer">
+        Kick <span>↗</span>
+      </a>
+
+      <a class="social-link"
+         href="https://www.twitch.tv/suptecx"
+         target="_blank" rel="me noopener noreferrer">
+        Twitch <span>↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 </main>
 
+<!-- TAM EKRAN FOTOGRAF -->
+<div
+  class="lightbox"
+  id="lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Fotoğraf görüntüleyici"
+  aria-hidden="true"
+>
+  <button
+    class="lightbox-close"
+    id="lightboxClose"
+    type="button"
+    aria-label="Fotoğrafı kapat"
+  >×</button>
+  <img id="lightboxImage" alt="">
+</div>
+
 <footer>
-  <div class="wrap foot">
+  <div class="wrap footer-row">
     <span>© <span id="year">2026</span> Ramazan Güven · supTecX</span>
-    <span>Creator Studio · Kişisel web sitesi</span>
+    <span>Gaming Universe / Creator Studio</span>
   </div>
 </footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+(function () {
+  "use strict";
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  const intro = document.getElementById("intro");
+
+  function closeIntro() {
+    intro.classList.add("hide");
+    window.setTimeout(() => intro.remove(), 650);
+  }
+
+  if (reducedMotion) {
+    intro.remove();
+  } else {
+    window.setTimeout(closeIntro, 1600);
+  }
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  /* Kaydirma animasyonlari */
+  if (!reducedMotion && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("js-enabled");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll(".reveal").forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  /* Fareyle 3D kart efekti */
+  if (!reducedMotion &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+
+    document.querySelectorAll(".tilt").forEach(card => {
+      card.addEventListener("pointermove", event => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+
+        const rotateX = (0.5 - y) * 7;
+        const rotateY = (x - 0.5) * 7;
+
+        card.style.transform =
+          `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+        card.style.setProperty("--mx", `${x * 100}%`);
+        card.style.setProperty("--my", `${y * 100}%`);
+      });
+
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
+  }
+
+  /* Fotograf galerisi */
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const closeButton = document.getElementById("lightboxClose");
+  let previousFocus = null;
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImage.removeAttribute("src");
+    lightboxImage.alt = "";
+    document.body.style.overflow = "";
+    if (previousFocus) previousFocus.focus();
+  }
+
+  document.querySelectorAll(".gallery-open").forEach(button => {
+    button.addEventListener("click", () => {
+      previousFocus = document.activeElement;
+      lightboxImage.src = button.dataset.src;
+      lightboxImage.alt = button.dataset.alt;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeButton.focus();
+    });
+  });
+
+  closeButton.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (!lightbox.classList.contains("open")) return;
+
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+
+    if (event.key === "Tab") {
+      event.preventDefault();
+      closeButton.focus();
+    }
+  });
+})();
 </script>
+
 </body>
 </html>
